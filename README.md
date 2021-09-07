@@ -13,8 +13,3 @@ CieNis-java-sdk è strutturata per un'applicazione Desktop e richiede l'installa
 
 # Requisiti di integrazione
 CieNis-java-sdk necessita di un lettore NFC USB correttamente installato.
-
-# Come si usa
-La classe principale dell'SDK è la classe **TestIasNFC.java**. Nella classe sono presenti due metodi principali: *enroll* e *access*. I metodi includono gli step da eseguire per le due fasi. Il metodo access viene fornito come riferimento, in quanto gli step inclusi non devono essere eseguiti localmente sulla stessa macchina che esegue l'enrollment.
-La gestione degli errori è demandata all'applicazione integrante del Service Provider.
-Per ottenere un eseguibile del tipo *.jar*, che esegue automaticamente gli step di verifica del NIS, è necessario lanciare un build della classe.
