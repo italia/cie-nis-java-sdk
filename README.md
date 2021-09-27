@@ -13,3 +13,29 @@ CieNis-java-sdk è strutturata per un'applicazione Desktop e richiede l'installa
 
 # Requisiti di integrazione
 CieNis-java-sdk necessita di un lettore NFC USB correttamente installato.
+
+# Come si usa
+Questa repository integra una classe di esempio che mostra come interfacciarsi con la SDK, la classe **TestNisAuthenticated.java**. La classe mostra come utilizzare i metodi: *enroll* e *access*.
+
+# Configurazione
+La sdk va importata nel proprio progetto e occorre inizializzarla, controllando che sia correttamente configurata utilizzando il codice seguente:
+```sh
+NisSdk nisSdk = new TestNisAuthenticated().initSdk();
+
+if(nisSdk.isReady()){
+    //metodo per eseguire la registrazione
+    nisSdk.enroll();
+
+    //metodo che mostra le operazioni di accesso da eseguire al tornello
+    nisSdk.access();
+}
+
+public NisSdk initSdk() {
+  return new NisSdk(new NfcTerminalImpl(), this, true);
+}
+```
+E' possibile configurare il livello di log desiderato tramite il parametro **isLogEnabled** nel costruttore della classe **NisSdk**.
+Per usare la libreria occorre implementare i metodi delll'interfaccia `NisSdkCallback`. Nel metodo dell'interfaccia **onSucccces** viene restituto l'output validato, nel caso di errore invece viene restituto un'eccezione nel metodo **onError**.
+
+# Licenza
+Il codice sorgente è rilasciato sotto licenza BSD (codice SPDX: BSD-3-Clause).
