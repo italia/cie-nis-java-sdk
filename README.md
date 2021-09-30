@@ -9,13 +9,13 @@ La fase di Enrollment, sviluppata nella SDK, verificata l’autenticità e l’o
 La fase di accesso consente all'utente, precedentemente registratosi nella fase di Enrollment, di utilizzare la CIE per accedere al servizio pinless. L'accesso avviene, ad esempio, su un tornello che, verificata l'originalità della CIE mediante i dati salvati in fase di Enrollment, ne autorizza l'accesso.
 
 # Requisiti tecnici
-CieNis-java-sdk è strutturata per un'applicazione Desktop e richiede l'installazione di Java SE 15 o superiore.
+CieNis-java-sdk è strutturata per un'applicazione Desktop e richiede l'installazione di Java SE 15 o superiore. La sdk richiede la dipendenze esterna della libreria BouncyCastle, reperibile in [questa](https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on/1.64) repository pubblica.
 
 # Requisiti di integrazione
 CieNis-java-sdk necessita di un lettore NFC USB correttamente installato.
 
 # Come si usa
-Questa repository integra una classe di esempio che mostra come interfacciarsi con la SDK, la classe **TestNisAuthenticated.java**. La classe mostra come utilizzare i metodi: *enroll* e *access*.
+Questa repository integra una classe di esempio che mostra come interfacciarsi con la SDK, la classe `TestNisAuthenticated.java`. La classe mostra come utilizzare i metodi: **enroll** e **access**.
 
 # Configurazione
 La sdk va importata nel proprio progetto e occorre inizializzarla, controllando che sia correttamente configurata utilizzando il codice seguente:
@@ -34,8 +34,8 @@ public NisSdk initSdk() {
   return new NisSdk(new NfcTerminalImpl(), this, true);
 }
 ```
-E' possibile configurare il livello di log desiderato tramite il parametro **isLogEnabled** nel costruttore della classe **NisSdk**.
-Per usare la libreria occorre implementare i metodi delll'interfaccia `NisSdkCallback`. Nel metodo dell'interfaccia **onSucccces** viene restituto l'output validato, nel caso di errore invece viene restituto un'eccezione nel metodo **onError**.
+E' possibile configurare il livello di log desiderato tramite il parametro `isLogEnabled` nel costruttore della classe `NisSdk`.
+Per usare la libreria occorre implementare i metodi dell'interfaccia `NisSdkCallback`. Nel metodo dell'interfaccia **onSucccess** viene restituto l'output validato, nel caso di errore invece viene restituto un'eccezione nel metodo **onError**.
 
 # Licenza
 Il codice sorgente è rilasciato sotto licenza BSD (codice SPDX: BSD-3-Clause).
