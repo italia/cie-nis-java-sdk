@@ -1,4 +1,4 @@
-package it.ipzs.test;
+package it.ipzs.cie.nis.samples;
 
 import it.ipzs.cie.nis.core.NfcTerminalImpl;
 import it.ipzs.cie.nis.ias.NisSdk;
